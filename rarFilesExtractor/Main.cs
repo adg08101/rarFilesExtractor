@@ -26,6 +26,9 @@ namespace rarFilesExtractor
         private void Main_Load(object sender, EventArgs e)
         {
             button2_Click(sender, e);
+
+            textBox1.Text = EnvironmentVariables.getEnvironmentVariable("folder_name");
+            textBox2.Text = EnvironmentVariables.getEnvironmentVariable("inner_folder_name");
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -53,6 +56,7 @@ namespace rarFilesExtractor
                     dataGridView1.Rows.Add(files[i].FullName, files[i].LastWriteTimeUtc);
 
                 dataGridView1.Sort(dataGridView1.Columns[1], System.ComponentModel.ListSortDirection.Descending);
+                dataGridView1.Rows[0].Selected = true;
             }
             catch (Exception ex)
             {
@@ -65,10 +69,18 @@ namespace rarFilesExtractor
             Close();
         }
 
+        private string concatenateIfOneCharacter(string input, string fill)
+        {
+            return input.Length == 1 ? fill + input : input;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
+                EnvironmentVariables.setEnvironmentVariable("folder_name", textBox1.Text);
+                EnvironmentVariables.setEnvironmentVariable("inner_folder_name", textBox2.Text);
+
                 ProcessStartInfo processStartInfo = new ProcessStartInfo("cmd.exe");
                 processStartInfo.RedirectStandardInput = true;
                 processStartInfo.RedirectStandardOutput = true;
@@ -76,10 +88,45 @@ namespace rarFilesExtractor
 
                 Process process = Process.Start(processStartInfo);
 
+                String surfix = EnvironmentVariables.getEnvironmentVariable("surfix");
+
+                if (surfix != null)
+                {
+                    DateTime today = DateTime.Today;
+
+                    switch (surfix)
+                    {
+                        case "Current Date":
+                            surfix = today.Year.ToString() +
+                                concatenateIfOneCharacter(today.Month.ToString(), "0") +
+                                concatenateIfOneCharacter(today.Day.ToString(), "0");
+                            break;
+                        default:
+                            surfix = String.Empty;
+                            break;
+                    }
+                }
+
                 if (process != null)
                 {
-                    // if ()
-                    process.StandardInput.WriteLine("start C:\\Environments");
+                    String containingFolder = textBox1.Text + surfix;
+
+                    if (textBox1.Text != String.Empty)
+                    {
+                        process.StandardInput.WriteLine("cd " + EnvironmentVariables.getEnvironmentVariable("output_folder"));
+                        process.StandardInput.WriteLine("mkdir " + containingFolder);
+
+                        if (textBox2.Text != String.Empty)
+                        {
+                            process.StandardInput.WriteLine("cd " + containingFolder);
+                            process.StandardInput.WriteLine("mkdir " + textBox2.Text);
+                        }
+                    }
+                    else
+                    { 
+                        // Continue here
+                    }
+
                     process.StandardInput.Close();
                 }
             }

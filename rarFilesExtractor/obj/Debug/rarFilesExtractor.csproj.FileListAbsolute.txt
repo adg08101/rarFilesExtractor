@@ -1,7 +1,6 @@
 C:\Users\Owner\Desktop\HOME\Home\PROYECTOS\.NET\rarFilesExtractor\rarFilesExtractor\bin\Debug\rarFilesExtractor.exe.config
 C:\Users\Owner\Desktop\HOME\Home\PROYECTOS\.NET\rarFilesExtractor\rarFilesExtractor\bin\Debug\rarFilesExtractor.exe
 C:\Users\Owner\Desktop\HOME\Home\PROYECTOS\.NET\rarFilesExtractor\rarFilesExtractor\bin\Debug\rarFilesExtractor.pdb
-C:\Users\Owner\Desktop\HOME\Home\PROYECTOS\.NET\rarFilesExtractor\rarFilesExtractor\obj\Debug\rarFilesExtractor.csproj.AssemblyReference.cache
 C:\Users\Owner\Desktop\HOME\Home\PROYECTOS\.NET\rarFilesExtractor\rarFilesExtractor\obj\Debug\rarFilesExtractor.csproj.SuggestedBindingRedirects.cache
 C:\Users\Owner\Desktop\HOME\Home\PROYECTOS\.NET\rarFilesExtractor\rarFilesExtractor\obj\Debug\rarFilesExtractor.Main.resources
 C:\Users\Owner\Desktop\HOME\Home\PROYECTOS\.NET\rarFilesExtractor\rarFilesExtractor\obj\Debug\rarFilesExtractor.Properties.Resources.resources
@@ -10,3 +9,4 @@ C:\Users\Owner\Desktop\HOME\Home\PROYECTOS\.NET\rarFilesExtractor\rarFilesExtrac
 C:\Users\Owner\Desktop\HOME\Home\PROYECTOS\.NET\rarFilesExtractor\rarFilesExtractor\obj\Debug\rarFilesExtractor.exe
 C:\Users\Owner\Desktop\HOME\Home\PROYECTOS\.NET\rarFilesExtractor\rarFilesExtractor\obj\Debug\rarFilesExtractor.pdb
 C:\Users\Owner\Desktop\HOME\Home\PROYECTOS\.NET\rarFilesExtractor\rarFilesExtractor\obj\Debug\rarFilesExtractor.Config.resources
+C:\Users\Owner\Desktop\HOME\Home\PROYECTOS\.NET\rarFilesExtractor\rarFilesExtractor\obj\Debug\rarFilesExtractor.csproj.AssemblyReference.cache
