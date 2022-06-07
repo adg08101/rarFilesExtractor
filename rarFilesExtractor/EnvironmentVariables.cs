@@ -4,7 +4,8 @@ namespace rarFilesExtractor
 {
     public class EnvironmentVariables
     {
-        public static string getEnvironmentVariable(string name) {
+        public static string getEnvironmentVariable(string name)
+        {
             return Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.User);
         }
 
