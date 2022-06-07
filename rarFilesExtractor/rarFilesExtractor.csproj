@@ -52,6 +52,7 @@
     <Compile Include="Config.Designer.cs">
       <DependentUpon>Config.cs</DependentUpon>
     </Compile>
+    <Compile Include="Directory.cs" />
     <Compile Include="EnvironmentVariables.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>

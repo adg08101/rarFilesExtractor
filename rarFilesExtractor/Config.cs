@@ -17,7 +17,7 @@ namespace rarFilesExtractor
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label2.Text = folderBrowserDialog1.SelectedPath + "\\*" + textBox1.Text + "*.rar";
+            label2.Text = folderBrowserDialog1.SelectedPath + "\\*" + textBox1.Text + "*.zip";
             button2.Enabled = folderBrowserDialog1.SelectedPath == string.Empty ? false : true;
             button2.Enabled = folderBrowserDialog2.SelectedPath == string.Empty ? false : true;
             textBox1.Enabled = button2.Enabled;
