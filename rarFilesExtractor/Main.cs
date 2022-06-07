@@ -129,18 +129,14 @@ namespace rarFilesExtractor
                         // Continue here
                     }
 
-                    Console.WriteLine(dataGridView1.SelectedCells[0].Value);
-                    Console.WriteLine(EnvironmentVariables.getEnvironmentVariable("destination"));
-
-                    String command = "7z e \"" + dataGridView1.SelectedCells[0].Value +
-                        "\" - o \"" + EnvironmentVariables.getEnvironmentVariable("destination") + "\" -r - y";
-
-                    Console.Write(command);
+                    string command = "7z e \"" + dataGridView1.SelectedCells[0].Value +
+                        "\" -o\"" + EnvironmentVariables.getEnvironmentVariable("destination") + "\" -r -y";
 
                     process.StandardInput.WriteLine(command);
-                    // 7z e "%file%" - o % destination % -r - y
-
                     process.StandardInput.Close();
+
+                    if (process == null)
+                        MessageBox.Show("Operation Completed Successfully");
                 }
             }
             catch (Exception ex)
