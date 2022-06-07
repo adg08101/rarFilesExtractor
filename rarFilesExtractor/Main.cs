@@ -111,21 +111,34 @@ namespace rarFilesExtractor
                 {
                     String containingFolder = textBox1.Text + surfix;
 
-                    if (textBox1.Text != String.Empty)
+                    if (textBox1.Text != string.Empty)
                     {
                         process.StandardInput.WriteLine("cd " + EnvironmentVariables.getEnvironmentVariable("output_folder"));
                         process.StandardInput.WriteLine("mkdir " + containingFolder);
 
-                        if (textBox2.Text != String.Empty)
+                        if (textBox2.Text != string.Empty)
                         {
                             process.StandardInput.WriteLine("cd " + containingFolder);
                             process.StandardInput.WriteLine("mkdir " + textBox2.Text);
+                            EnvironmentVariables.setEnvironmentVariable("destination", EnvironmentVariables.getEnvironmentVariable("output_folder") +
+                                "\\" + containingFolder + "\\" + textBox2.Text);
                         }
                     }
                     else
                     { 
                         // Continue here
                     }
+
+                    Console.WriteLine(dataGridView1.SelectedCells[0].Value);
+                    Console.WriteLine(EnvironmentVariables.getEnvironmentVariable("destination"));
+
+                    String command = "7z e \"" + dataGridView1.SelectedCells[0].Value +
+                        "\" - o \"" + EnvironmentVariables.getEnvironmentVariable("destination") + "\" -r - y";
+
+                    Console.Write(command);
+
+                    process.StandardInput.WriteLine(command);
+                    // 7z e "%file%" - o % destination % -r - y
 
                     process.StandardInput.Close();
                 }
